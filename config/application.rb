@@ -34,6 +34,7 @@ module RailsMessagin2
   end
 end
 
+
 config.generators do |g|
   g.template_engine :erb
   g.test_framework  :rspec, fixture: true, views: false
@@ -42,3 +43,4 @@ config.generators do |g|
   g.stylesheets     false
   g.javascripts     false
 end
+
