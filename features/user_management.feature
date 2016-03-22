@@ -8,6 +8,7 @@ Feature: As a User, in order to use the application
 #    Then Show me the page
     And I click on "Sign up"
     Then I should be on the "Sign up" page
+    And I fill in "Name" with "Visitor"
     And I fill in "Email" with "user@any.com"
     And I fill in "Password" with "Password"
     And I fill in "Password confirmation" with "Password"
