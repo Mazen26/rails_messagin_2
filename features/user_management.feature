@@ -5,6 +5,7 @@ Feature: As a User, in order to use the application
 
   Scenario: Register a User
     Given I am on the "home" page
+#    Then Show me the page
     And I click on "Sign up"
     Then I should be on the "Sign up" page
     And I fill in "Email" with "user@any.com"

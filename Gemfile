@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', '~> 1.4', '>= 1.4.2' , require: false
   gem 'database_cleaner'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 
 end
 
