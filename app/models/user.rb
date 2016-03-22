@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, length: { maximum: 10, too_long: "%{count} Characters is the maximum allowed" }
+  validates :name, length: { maximum: 10 }
   validates :name, presence: true
   validates_uniqueness_of :name
 
