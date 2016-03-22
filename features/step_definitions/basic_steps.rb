@@ -9,13 +9,19 @@ def sign_up
   fill_in 'user_email', with: @visitor[:email]
   fill_in 'user_password', with: @visitor[:password]
   fill_in 'user_password_confirmation', with: @visitor[:password_confirmation]
-  click_button 'Create'
+  click_link_or_button 'Create'
+end
+
+def log_out
+  click_link_or_button 'Logout'
 end
 
 Given(/^I am on the "([^"]*)" page$/) do |page|
   case page
     when 'home'
       visit '/'
+    when 'Sign up'
+      visit '/users/sign_up'
   end
 end
 
@@ -31,6 +37,12 @@ Then(/^I should be on the "([^"]*)" page$/) do |page|
   case page
     when 'Sign up'
       expect(current_path).to eq '/users/sign_up'
+    when 'Sign in'
+      expect(current_path).to eq '/users/sign_in'
+    when 'Users'
+      expect(current_path).to eq '/users'
+    when 'password new'
+      expect(current_path).to eq '/users/password/new'
   end
 end
 
@@ -46,4 +58,10 @@ end
 Given(/^I am registered user$/) do
   create_visitor
   sign_up
+end
+
+Given(/^I Logout a User$/) do
+  create_visitor
+  sign_up
+  log_out
 end
