@@ -8,4 +8,15 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates_uniqueness_of :name
 
+  acts_as_messageable
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
+  
+
 end
