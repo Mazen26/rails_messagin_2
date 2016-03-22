@@ -31,16 +31,16 @@ module RailsMessagin2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.generators do |generate|
+      generate.helper false
+      generate.assets false
+      generate.view_specs false
+      generate.test_framework :rspec
+      generate.view_specs false
+    end
   end
 end
 
-#
-# config.generators do |g|
-#   g.template_engine :erb
-#   g.test_framework  :rspec, fixture: true, views: false
-#   # g.integration_tool :rspec, fixture: true, views: true
-#   # g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
-#   g.stylesheets     false
-#   g.javascripts     false
-# end
+
 
