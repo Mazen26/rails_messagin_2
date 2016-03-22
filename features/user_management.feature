@@ -78,17 +78,31 @@ Feature: As a User, in order to use the application
 
   Scenario: Register a User : Email already taken
     Given I am registered user
-    And I am on the "home" page
-    And I click on "Logout"
+    And I Logout a User
     Then I am on the "home" page
     And I click on "Sign up"
     Then I should be on the "Sign up" page
+    And I fill in "Name" with "NewVisitor"
     And I fill in "Email" with "user@any.com"
     And I fill in "Password" with "12345678"
     And I fill in "Password confirmation" with "12345678"
     And I click on "Create"
     Then I should be on the "Users" page
     And I should see "Email has already been taken"
+
+  Scenario: Register a User : Name already taken
+    Given I am registered user
+    And I Logout a User
+    Then I am on the "home" page
+    And I click on "Sign up"
+    Then I should be on the "Sign up" page
+    And I fill in "Name" with "Visitor"
+    And I fill in "Email" with "Newuser@any.com"
+    And I fill in "Password" with "Password"
+    And I fill in "Password confirmation" with "Password"
+    And I click on "Create"
+    Then I should be on the "Users" page
+    And I should see "Name has already been taken"
 
   Scenario: Logout a User
     Given I am registered user
