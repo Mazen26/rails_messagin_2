@@ -98,7 +98,9 @@ Feature: As a User, in order to use the application
     And I should see "Signed out successfully."
 
   Scenario: Log in  a User
-    Given I Logout a User
+    Given I am registered user
+    And I Logout a User
+    And I am on the "home" page
     And I click on "Login"
     Then I should be on the "Sign in" page
     And I fill in "Email" with "user@any.com"
