@@ -17,6 +17,11 @@ RSpec.describe User, type: :model do
 
   end
 
+
+  describe 'mailbox' do
+    it {is_expected.to respond_to(:mailbox)}
+  end
+
   describe 'Fixtures' do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:user)).to be_valid
