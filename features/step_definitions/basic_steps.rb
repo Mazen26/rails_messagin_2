@@ -28,3 +28,7 @@ end
 And(/^I should see "([^"]*)"$/) do |string|
   expect(page).to have_text string
 end
+
+Given(/^I am registered user$/) do
+  pending
+end

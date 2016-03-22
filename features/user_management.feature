@@ -52,14 +52,27 @@ Feature: As a User, in order to use the application
     Then I should be on the "Users" page
     And I should see "Email can't be blank"
 
-  Scenario: Register a User : without Name
-    Given I am on the "home" page
+#  Scenario: Register a User : without Name
+#    Given I am on the "home" page
+#    And I click on "Sign up"
+#    Then I should be on the "Sign up" page
+#    And I fill in "Name" with " "
+#    And I fill in "Email" with "user@any.com"
+#    And I fill in "Password" with "Password"
+#    And I fill in "Password confirmation" with "Password"
+#    And I click on "Create"
+#    Then I should be on the "Users" page
+#    And I should see "Name can't be blank"
+
+  Scenario: Register a User : Email already taken
+    Given I am registered user
+    And I click on "Logout"
+    Then I am on the "home" page
     And I click on "Sign up"
     Then I should be on the "Sign up" page
-    And I fill in "Name" with " "
     And I fill in "Email" with "user@any.com"
-    And I fill in "Password" with "Password"
-    And I fill in "Password confirmation" with "Password"
+    And I fill in "Password" with "12345678"
+    And I fill in "Password confirmation" with "12345678"
     And I click on "Create"
     Then I should be on the "Users" page
-    And I should see "Name can't be blank"
+    And I should see "Email has already been taken"
