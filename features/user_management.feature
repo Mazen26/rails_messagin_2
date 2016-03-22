@@ -68,7 +68,7 @@ Feature: As a User, in order to use the application
     Given I am on the "home" page
     And I click on "Sign up"
     Then I should be on the "Sign up" page
-    And I fill in "Name" with " "
+    And I fill in "Name" with "NameLonger Than10 "
     And I fill in "Email" with "user@any.com"
     And I fill in "Password" with "Password"
     And I fill in "Password confirmation" with "Password"
@@ -78,6 +78,7 @@ Feature: As a User, in order to use the application
 
   Scenario: Register a User : Email already taken
     Given I am registered user
+    And I am on the "home" page
     And I click on "Logout"
     Then I am on the "home" page
     And I click on "Sign up"

@@ -1,3 +1,17 @@
+def create_visitor
+  @visitor ||= { name: 'Visitor', email: 'user@any.com',
+                 password: 'Password', password_confirmation: 'Password' }
+end
+
+def sign_up
+  visit '/users/sign_up'
+  fill_in 'user_name', with: @visitor[:name]
+  fill_in 'user_email', with: @visitor[:email]
+  fill_in 'user_password', with: @visitor[:password]
+  fill_in 'user_password_confirmation', with: @visitor[:password_confirmation]
+  click_button 'Create'
+end
+
 Given(/^I am on the "([^"]*)" page$/) do |page|
   case page
     when 'home'
@@ -30,5 +44,6 @@ And(/^I should see "([^"]*)"$/) do |string|
 end
 
 Given(/^I am registered user$/) do
-  pending
+  create_visitor
+  sign_up
 end
