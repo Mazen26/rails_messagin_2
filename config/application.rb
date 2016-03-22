@@ -37,7 +37,6 @@ module RailsMessagin2
       generate.assets false
       generate.view_specs false
       generate.test_framework :rspec
-      generate.view_specs false
     end
   end
 end
