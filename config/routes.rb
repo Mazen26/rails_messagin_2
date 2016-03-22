@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+  default_url_options :host => "test.se"
+
   devise_for :users
   get 'welcome/index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
+
+ # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
