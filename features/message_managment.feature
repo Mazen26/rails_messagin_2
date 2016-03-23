@@ -44,3 +44,11 @@ Feature: As a User, in order to use messaging system
     And I fill in "message_body" with "Hi back"
     Then I click on "Reply"
     Then I should see "Hi back"
+
+    Scenario: Trash a message
+    Given I sent a message
+    Given I am on the "mailbox" page
+    And I should see "Hello how are you"
+    Then I click on "Move to trash"
+    Then I click on "Trash"
+    Then I should see "Hello how are you"
