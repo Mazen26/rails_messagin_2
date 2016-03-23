@@ -49,6 +49,12 @@ RSpec.describe User, type: :model do
       expect(sender.mailbox.inbox.first.subject).to eq 'hello there'
       expect(user_1.mailbox.inbox.first.subject).to eq 'hello there'
     end
+
+    it 'mark as read' do
+      receipt = sender.send_message(user_1, 'My message', 'hello there')
+      expect(receipt.is_read).to eq true
+    end
+
   end
 
   describe 'Fixtures' do
