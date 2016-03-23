@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  default_url_options :host => "test.se"
+  # default_url_options :host => "test.se"
 
   devise_for :users
   get 'welcome/index'

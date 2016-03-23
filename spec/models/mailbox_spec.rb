@@ -23,6 +23,4 @@ describe Mailboxer::Mailbox do
     expect(@user1.mailbox.conversations_with(@user2)).to eq [@conversation]
   end
 
-
-
 end

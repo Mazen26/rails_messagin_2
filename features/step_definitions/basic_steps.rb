@@ -46,3 +46,18 @@ end
 Given(/^I Logout a User$/) do
   logout
 end
+
+Given(/^the following users exists$/) do |table|
+  table.hashes.each do |hash|
+    User.create(name: hash[:name],
+                email: hash[:email],
+                password: hash[:password],
+                password_confirmation: hash[:password_confirmation],
+    )
+  end
+end
+
+
+And(/^I select "([^"]*)" as "([^"]*)"$/) do |name, table|
+  select name, from: table
+end

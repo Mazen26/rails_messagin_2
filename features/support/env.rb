@@ -10,3 +10,4 @@ end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+
