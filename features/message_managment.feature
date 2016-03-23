@@ -26,11 +26,12 @@ Feature: As a User, in order to use messaging system
 
 
 
-  Scenario: view message in sent items
+  Scenario: view messages list in sent items
     Given I sent a message
     And I am on the "home" page
     And I click on "Inbox"
     Then I should be on the "mailbox" page
-    And I click on "sent"
-    Then I should be on the "conversation sent" page
+    And I click on "Sent"
+    Then I should be on the "sent" page
+    And I should see "Hello how are you"
 
