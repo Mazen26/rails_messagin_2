@@ -61,3 +61,20 @@ end
 And(/^I select "([^"]*)" as "([^"]*)"$/) do |name, table|
   select name, from: table
 end
+
+Given(/^I sent a message$/) do
+steps '
+    Given I am registered user
+    And I am on the "home" page
+    And I click on "Inbox"
+    Then I should be on the "mailbox" page
+    And I click on "Compose"
+    Then I should be on the "conversation new" page
+    And I select "Mazen" as "conversation_recipients"
+    And I fill in "Subject" with "hi"
+    And I fill in "conversation_body" with "Hello how are you"
+    And I click on "Send Message"
+    Then I should see "Your message was successfully sent!"
+
+'
+end

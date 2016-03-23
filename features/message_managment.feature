@@ -23,5 +23,14 @@ Feature: As a User, in order to use messaging system
     And I fill in "conversation_body" with "Hello how are you"
     And I click on "Send Message"
     Then I should see "Your message was successfully sent!"
-    
+
+
+
+  Scenario: view message in sent items
+    Given I sent a message
+    And I am on the "home" page
+    And I click on "Inbox"
+    Then I should be on the "mailbox" page
+    And I click on "sent"
+    Then I should be on the "conversation sent" page
 
