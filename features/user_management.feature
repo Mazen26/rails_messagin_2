@@ -74,7 +74,7 @@ Feature: As a User, in order to use the application
     And I fill in "Password confirmation" with "Password"
     And I click on "Create"
     Then I should be on the "Users" page
-    And I should see "Name 10 Characters is the maximum allowed"
+    And I should see "Name is too long (maximum is 10 characters)"
 
   Scenario: Register a User : Email already taken
     Given I am registered user
