@@ -3,7 +3,7 @@
 <head>
   <title>RailsMessagin2</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <!--<#%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>-->
+  <!--<%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>-->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -19,9 +19,7 @@
 <% end %>
 
 <div class="container">
-    <!--<p class="notice"><%= notice %></p>-->
-    <!--<p class="alert"><%= alert %></p>-->
-    <%= yield %>
+  <%= yield %>
 </div>
 
 </body>
