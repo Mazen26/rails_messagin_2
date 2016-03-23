@@ -25,12 +25,30 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to respond_to(:mailbox) }
 
+
     it 'sends a message' do
-      sender.send_message(user_1, "My message", "hello there")
-      # expect(sender.mailbox.sentbox.first.subject).to eq 'hello there'
-      # expect(sender.mailbox.sentbox.first.message).to eq 'My message'
+      sender.send_message(user_1, 'My message', 'hello there')
+      expect(sender.mailbox.sentbox.first.subject).to eq 'hello there'
+      expect(sender.mailbox.sentbox.count).to eq 1
+      expect(user_1.mailbox.inbox.first.subject).to eq 'hello there'
+      expect(user_2.mailbox.inbox.count).to eq 0
+
     end
 
+    it 'reply to sender' do
+      # byebug
+      receipt = sender.send_message(user_1, 'My message', 'hello there')
+      assert user_1.reply_to_sender(receipt, 'Reply My message')
+      expect(user_1.mailbox.sentbox.count).to eq 1
+      expect(sender.mailbox.inbox.first.subject).to eq 'hello there'
+    end
+
+    it 'reply to all' do
+      receipt = sender.send_message([user_2,user_1], 'My message', 'hello there')
+      assert user_2.reply_to_all(receipt,'Reply My message')
+      expect(sender.mailbox.inbox.first.subject).to eq 'hello there'
+      expect(user_1.mailbox.inbox.first.subject).to eq 'hello there'
+    end
   end
 
   describe 'Fixtures' do
