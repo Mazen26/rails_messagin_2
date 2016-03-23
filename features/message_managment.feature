@@ -5,11 +5,11 @@ Feature: As a User, in order to use messaging system
 
   Background:
     Given the following users exists
-      | name   | email        | password  | password_confirmation |
-      | Mazen  | same@any.com | same55555 | same55555             |
-      | Thomas | shme@any.com | shme55555 | shme55555             |
-      | Rich   | saje@any.com | saje55555 | saje55555             |
-      | Fat    | qwer@any.com | qwer55555 | qwer55555             |
+      | name | email | password | password_confirmation |
+      | Mazen | same@any.com | same55555 | same55555 |
+      | Thomas | shme@any.com | shme55555 | shme55555 |
+      | Rich | saje@any.com | saje55555 | saje55555 |
+      | Fat | qwer@any.com | qwer55555 | qwer55555 |
 
   Scenario: Send a message
     Given I am registered user
@@ -24,8 +24,6 @@ Feature: As a User, in order to use messaging system
     And I click on "Send Message"
     Then I should see "Your message was successfully sent!"
 
-
-
   Scenario: view messages list in sent items
     Given I sent a message
     And I am on the "home" page
@@ -35,3 +33,14 @@ Feature: As a User, in order to use messaging system
     Then I should be on the "sent" page
     And I should see "Hello how are you"
 
+  Scenario: Replay message
+    Given I sent a message
+    And I am on the "home" page
+    And I click on "Inbox"
+    Then I should be on the "mailbox" page
+    And I click on "Sent"
+    Then I should be on the "sent" page
+    And I click on "View"
+    And I fill in "message_body" with "Hi back"
+    Then I click on "Reply"
+    Then I should see "Hi back"

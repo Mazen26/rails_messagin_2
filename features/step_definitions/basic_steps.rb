@@ -57,6 +57,18 @@ Given(/^the following users exists$/) do |table|
   end
 end
 
+Given(/^the following message is in inboxs$/) do |table|
+  @user = User.last
+  sender.send_message(@user, 'My message', 'hello there')
+  table.hashes.each do |hash|
+    User.create(name: hash[:name],
+                email: hash[:email],
+                password: hash[:password],
+                password_confirmation: hash[:password_confirmation],
+    )
+  end
+end
+
 
 And(/^I select "([^"]*)" as "([^"]*)"$/) do |name, table|
   select name, from: table
