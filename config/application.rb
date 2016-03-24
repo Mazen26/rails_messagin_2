@@ -33,7 +33,7 @@ module RailsMessagin2
     config.active_record.raise_in_transactional_callbacks = true
 
 
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.default_url_options = { host: 'fast-meadow-62731.herokuapp.com' }
 
     config.generators do |generate|
       generate.helper false
